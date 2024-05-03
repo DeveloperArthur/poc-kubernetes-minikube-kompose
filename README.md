@@ -29,7 +29,7 @@ Instale o Minikube e Kompose:
 
 ### Para ver os Pods via terminal:
     
-    kubectl get po
+    kubectl get pods
 
 ![obj](assets/pods.png)
 
