@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -f ../docker-compose.yaml
+    kompose.version: 1.33.0 (HEAD)
+  labels:
+    io.kompose.network/poc-kubernetes-with-minikube-and-kompose-nginx-net: "true"
+    io.kompose.service: rust-instance
+  name: rust-instance
+spec:
+  containers:
+    - image: developerarthur/api-rust-rinha-backend-2
+      name: rust-instance
+      ports:
+        - containerPort: 3030
+          hostPort: 3030
+          protocol: TCP
+  restartPolicy: OnFailure

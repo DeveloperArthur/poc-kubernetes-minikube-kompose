@@ -1,0 +1,27 @@
+apiVersion: v1
+data:
+  nginx.conf: |-
+    events {
+        worker_connections 256;
+    }
+
+    http {
+        upstream instances {
+            least_conn;
+            server rust-instance:3030;
+            server rust-instance-2:3030;
+        }
+        server {
+            listen 9999;
+            location / {
+                proxy_pass http://instances;
+            }
+        }
+    }
+kind: ConfigMap
+metadata:
+  annotations:
+    use-subpath: "true"
+  labels:
+    io.kompose.service: nginx
+  name: nginx-cm0
