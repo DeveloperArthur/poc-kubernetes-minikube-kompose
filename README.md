@@ -15,7 +15,7 @@ Instale o Minikube e Kompose:
     
     minikube start
 
-### Converte o compose em arquivos Kubernetes e joga esses arquivos em um diretório chamado 'kubernetes':
+### Converte o compose em arquivos Kubernetes:
 
     kompose convert -f docker-compose.yaml
 
