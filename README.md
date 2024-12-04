@@ -40,4 +40,30 @@ Instale o Minikube e Kompose:
 ![obj](assets/dashboard.png)
 ![obj](assets/dashboard2.png)
 
+## Outros Comandos Minikube
 
+- **Iniciar o Minikube com o CNI Calico:**
+
+    ```bash
+    minikube start --cni=calico
+    ```
+
+- **Executar um pod temporário com a imagem `hello-world`:**
+
+    ```bash
+    kubectl run --rm --stdin --image=hello-world --restart=Never --request-timeout=30 test-pod
+    ```
+
+- **Adicionar um nó no cluster do Minikube:**
+
+    ```bash
+    minikube node add
+    ```
+
+Você pode executar este comando quantas vezes quiser para adicionar novos nós ao cluster.
+
+- **Deletar o cluster Minikube:**
+
+    ```bash
+    minikube delete
+    ```
